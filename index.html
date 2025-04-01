@@ -1,1 +1,210 @@
-test
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Consistent Video Generation Results</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        video {
+            max-width: 100%;
+            height: auto;
+        }
+        .noise-video {
+            max-width: 100%;  /* Let it adapt to the cell size */
+            display: block;
+            margin: 0 auto;
+        }
+        .noise-cell {
+            width: 20%;  /* Make the first column narrower */
+        }
+        .video-cell {
+            width: 40%;  /* Make the other columns wider */
+        }
+        .video-container {
+            width: 33%;
+        }
+        .image-container, .gif-container {
+            text-align: center;
+            margin: 20px auto;
+        }
+        .content-container {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Paper Rebuttal Visualization</h1>
+    
+    <!-- Table of Contents -->
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#section1">[Common01] 3D Consistent Video Generation</a></li>
+            <li><a href="#section2">[Common02] PSNR and SSIM used for evaluating temporal consistency</a></li>
+            <li><a href="#section3">[HKYh08] Gaussianality of the input noise after warping</a></li>
+        </ul>
+    </div>
+    
+    <section id="section1">
+        <h3>[Common01] 3D Consistent Video Generation</h3>
+        <p>We include qualitative results demonstrating 3D-consistent video generation in the table below.
+        The input noise is constructed by projecting Gaussian noise from the 3D meshes and adding independent Gaussian noise in the 2D image space, as detailed in Section 4.3 of the paper.
+        For improved visualization, the input noise videos are upsampled by a factor of 2.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th class="noise-cell">Input Noise Video</th>
+                    <th class="video-cell">Generated Video</th>
+                    <th class="video-cell">Ground Truth Video</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="noise-cell"><video class="noise-video" autoplay loop muted playsinline src="./x_T/x_T_fb5a96b1a2_000448_00.mp4"></video></td>
+                    <td class="video-cell"><video autoplay loop muted playsinline src="./generated_videos/fb5a96b1a2_000448_00.mp4"></video></td>
+                    <td class="video-cell"><video autoplay loop muted playsinline src="./ground_truth_videos/fb5a96b1a2_000448_00.mp4"></video></td>
+                </tr>
+                <tr>
+                    <td class="noise-cell"><video class="noise-video" autoplay loop muted playsinline src="./x_T/x_T_f3d64c30f8_000432_00.mp4"></video></td>
+                    <td class="video-cell"><video autoplay loop muted playsinline src="./generated_videos/f3d64c30f8_000432_00.mp4"></video></td>
+                    <td class="video-cell"><video autoplay loop muted playsinline src="./ground_truth_videos/f3d64c30f8_000432_00.mp4"></video></td>
+                </tr>
+                <tr>
+                    <td class="noise-cell"><video class="noise-video" autoplay loop muted playsinline src="./x_T/x_T_c50d2d1d42_000288_00.mp4"></video></td>
+                    <td class="video-cell"><video autoplay loop muted playsinline src="./generated_videos/c50d2d1d42_000288_00.mp4"></video></td>
+                    <td class="video-cell"><video autoplay loop muted playsinline src="./ground_truth_videos/c50d2d1d42_000288_00.mp4"></video></td>
+                </tr>
+                <tr>
+                    <td class="noise-cell"><video class="noise-video" autoplay loop muted playsinline src="./x_T/x_T_a980334473_000304_00.mp4"></video></td>
+                    <td class="video-cell"><video autoplay loop muted playsinline src="./generated_videos/a980334473_000304_00.mp4"></video></td>
+                    <td class="video-cell"><video autoplay loop muted playsinline src="./ground_truth_videos/a980334473_000304_00.mp4"></video></td>
+                </tr>
+                <tr>
+                    <td class="noise-cell"><video class="noise-video" autoplay loop muted playsinline src="./x_T/x_T_7bc286c1b6_000064_00.mp4"></video></td>
+                    <td class="video-cell"><video autoplay loop muted playsinline src="./generated_videos/7bc286c1b6_000064_00.mp4"></video></td>
+                    <td class="video-cell"><video autoplay loop muted playsinline src="./ground_truth_videos/7bc286c1b6_000064_00.mp4"></video></td>
+                </tr>
+                <tr>
+                    <td class="noise-cell"><video class="noise-video" autoplay loop muted playsinline src="./x_T/x_T_5f99900f09_000368_00.mp4"></video></td>
+                    <td class="video-cell"><video autoplay loop muted playsinline src="./generated_videos/5f99900f09_000368_00.mp4"></video></td>
+                    <td class="video-cell"><video autoplay loop muted playsinline src="./ground_truth_videos/5f99900f09_000368_00.mp4"></video></td>
+                </tr>
+                <tr>
+                    <td class="noise-cell"><video class="noise-video" autoplay loop muted playsinline src="./x_T/x_T_13c3e046d7_000432_00.mp4"></video></td>
+                    <td class="video-cell"><video autoplay loop muted playsinline src="./generated_videos/13c3e046d7_000432_00.mp4"></video></td>
+                    <td class="video-cell"><video autoplay loop muted playsinline src="./ground_truth_videos/13c3e046d7_000432_00.mp4"></video></td>
+                </tr>
+                <tr>
+                    <td class="noise-cell"><video class="noise-video" autoplay loop muted playsinline src="./x_T/x_T_21d970d8de_000400_00.mp4"></video></td>
+                    <td class="video-cell"><video autoplay loop muted playsinline src="./generated_videos/21d970d8de_000400_00.mp4"></video></td>
+                    <td class="video-cell"><video autoplay loop muted playsinline src="./ground_truth_videos/21d970d8de_000400_00.mp4"></video></td>
+                </tr>
+                <tr>
+                    <td class="noise-cell"><video class="noise-video" autoplay loop muted playsinline src="./x_T/x_T_09c1414f1b_000336_00.mp4"></video></td>
+                    <td class="video-cell"><video autoplay loop muted playsinline src="./generated_videos/09c1414f1b_000336_00.mp4"></video></td>
+                    <td class="video-cell"><video autoplay loop muted playsinline src="./ground_truth_videos/09c1414f1b_000336_00.mp4"></video></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    
+    <section id="section2">
+        <h3>[Common02] PSNR and SSIM used for evaluating temporal consistency</h3>
+            <p>
+            The PSNR and SSIM metrics in our paper are used for evaluting the
+            temporal consistency of the generated frames, as well as how the
+            motion pattern of the generated frames follows the optical flow of
+            the input noise.  As shown in the figure below, to compute the PSNR
+            and SSIM metrics, we first extract the 2D optical flow of the input
+            driving video. Then given the correpsponding generated video, we
+            warp the the source frame (the frame t in the case shown in the
+            illustration) towards the target frame (the frame t+1) using the
+            optical flow.  Then we compute the PSNR and SSIM metrics between the
+            warped source frame and the target frame.
+            As a result, if the generated video follows the same motion pattern
+            as the ground truth and maintains temporal consistency, it will
+            yield a higher PSNR and SSIM scores—and vice versa.
+            </p>
+
+            <p>
+                Compared with the metrics in Video Benchmark[1], our metric is
+                similar to the “Warping Error” for temporal consistency in the
+                Sec.4.4 of that paper. The only difference is that the optical
+                flow used for warping is estimated from the ground truth video
+                rather than generated video.
+            </p>
+        <div class="content-container">
+            <div class="image-container">
+                <img src="./psnr_ssim.png" alt="PSNR and SSIM metrics" width="80%">
+            </div>
+        </div>
+    </section>
+
+    <section id="section3">
+        <h3>[HKYh08] Gaussian characteristics of the input noise after warping</h3>
+            <p> 
+                In the following, we illustrate the i.i.d. property of each frame of the input warped noise.
+                On the left, we present a zoomed-in warp of the first noise frame.
+                On the right, we show the covariance matrices computed over a 10×10 window at the center of each frame.
+                As shown, the covariance matrices are close to the identity matrix, indicating that the noise in each frame is approximately independent after warping.
+            </p>
+        <div class="content-container">
+            <div class="gif-container">
+                <img src="./covariance/cov.gif" alt="Covariance of noise distribution after warping" width="30%">
+            </div>
+        </div>
+    </section>
+
+    <section id="references">
+        <h3>References</h3>
+        <p>[1] EvalCrafter: Benchmarking and Evaluating Large Video Generation Models. Liu et.al [CVPR 2024]</p>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all videos
+            const videos = document.querySelectorAll('video');
+            
+            // Create an intersection observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    // If the video is in view
+                    if (entry.isIntersecting) {
+                        entry.target.play(); // Play the video
+                    } else {
+                        entry.target.pause(); // Pause when out of view
+                    }
+                });
+            }, { threshold: 0.3 }); // Trigger when 30% of the video is visible
+            
+            // Observe each video
+            videos.forEach(video => {
+                observer.observe(video);
+            });
+        });
+    </script>
+</body>
+</html>
